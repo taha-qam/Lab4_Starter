@@ -6,11 +6,11 @@
  * @returns The sum of the two numbers if add is true and false otherwise.
  */
 function sumValues(num1, num2, add) {
-    if (add) {
+    if (add && typeof num1 === "number" && typeof num2 === "number") {
         let result = 0;
 
         result = num1 + num2;
-
+        
         return result;
     }
     else {
@@ -33,7 +33,14 @@ function discountPrices(prices, discount) {
         discounted.push(discountedPrice);
     }
 
-    return discounted;
+    if(discounted.length === 0)
+    {
+        return false;
+    }
+    else
+    {
+        return discounted;
+    }
 }
 
 module.exports = {sumValues, discountPrices};
