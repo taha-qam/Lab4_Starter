@@ -6,12 +6,9 @@
  * @returns The sum of the two numbers if add is true and false otherwise.
  */
 function sumValues(num1, num2, add) {
-    if (add && typeof num1 === "number" && typeof num2 === "number") {
-        let result = 0;
 
-        result = num1 + num2;
-        
-        return result;
+    if (add && typeof num1 === "number" && typeof num2 === "number") {
+        return num1 + num2;
     }
     else {
         return false;
@@ -25,6 +22,17 @@ function sumValues(num1, num2, add) {
  * @returns An array of each price's new price, after the discount is applied. Or false, if prices array is empty.
  */
 function discountPrices(prices, discount) {
+
+    if(!Array.isArray(prices) || prices.length === 0)
+    {
+        return false;
+    }
+
+    if(typeof discount !== "number" || (discount < 0 || discount > 1)) 
+    {
+        return false;
+    }
+
     const discounted = [];
     const length = prices.length;
     let discountedPrice = 0;
